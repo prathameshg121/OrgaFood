@@ -52,11 +52,7 @@ addToC()
     fun getAllProDetails(product:Product) //call this function in FireStoreC and pass productDetails corresponding to the id that we pass in getProd() fun
     {
 
-
-
-
 producD = product
-
 
         Log.i("Product id idkd", product.pName)
    Glide.with(this).load(product.images).into(findViewById(R.id.dImage))
@@ -71,14 +67,18 @@ producD = product
 
 // function addToC() will  create the variable of the type cart and pass this variable(addToCart) to FireStoreC().cart()
     private fun addToC(){
+
+    var setProductIdForCart = setProductId + FireStoreC().getCurrentUID()
+
         val addToCart = cart(
 FireStoreC().getCurrentUID(),          // getting the id of current user
-         producD.pName,
-         producD.images,
-         producD.ProDid,
-            producD.price,
+            producD.pName,
+            producD.images,
+            setProductId  ,
+            producD.price ,
             producD.sellerName,
-            constants.NO_OFItems
+            constants.NO_OFItems,
+            setProductIdForCart
 
         )
         FireStoreC().cart(this,addToCart,setProductId)

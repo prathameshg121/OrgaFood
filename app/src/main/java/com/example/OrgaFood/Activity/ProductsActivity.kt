@@ -25,7 +25,7 @@ class ProductsActivity : AppCompatActivity() {
 
 //
 
-FireStoreC().getProductsinfo(this)
+        FireStoreC().getProductsinfo(this)
 
 
 
@@ -35,19 +35,15 @@ FireStoreC().getProductsinfo(this)
 //        Log.d(ContentValues.TAG, "${"ThisProducts page"+ plis.size} => ${plis.size}")
 
 
-        var profile= findViewById<View>(R.id.profile)
+        var profile= findViewById<View>(R.id.profilep)
         profile.setOnClickListener{
             startActivity(Intent(this,ProfileActivity ::class.java))
         }
 
-
-
-
-
-   var img= findViewById<View>(R.id.cartImgId)
-      img.setOnClickListener{
-          startActivity(Intent(this,CartActivity ::class.java))
-      }
+        var img= findViewById<View>(R.id.cartImgId)
+        img.setOnClickListener{
+            startActivity(Intent(this,CartActivity ::class.java))
+        }
 
 
     }
@@ -57,7 +53,7 @@ FireStoreC().getProductsinfo(this)
     fun successProduc(plist: ArrayList<Product>) {
 
         val rcv= findViewById<RecyclerView>(R.id.recycleView)
-       rcv.adapter=dataAdapter(this,plist)
+        rcv.adapter=dataAdapter(this,plist)
         rcv.setHasFixedSize(true)
     }
 
